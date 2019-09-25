@@ -44,7 +44,7 @@ In the future it would be good to allow the get stat functions to use an ID as a
 
 #### setfnid
 Allows a user to set and save their Epic Games username in order to get their Fortnite stats later, without entering it again. The username is stored in a __python dictionary__ and saved to a file using __pickle__. This ID can be found if you search for your stats on [Fortbuff](https://www.fortbuff.com/) and look in the url. It should look something like this:
-> https://www.fortbuff.com/players/**EPIC ID**?mode=all&platform=all
+> https://www.fortbuff.com/players/<**EPIC ID**>?mode=all&platform=all
 
 All this does is simply store that ID in a file for later use, it will not automatically send you your stats after you set your ID.
 > Usage: /setfnid <Epic Games ID>
@@ -53,10 +53,10 @@ All this does is simply store that ID in a file for later use, it will not autom
 Allows a user to set and save their Steam username in order to get their Rocket League stats later, without entering it again. The username is stored in a __python dictionary__ and saved to a file using __pickle__. This ID can be found in two main places. You can search for your stats on [Tracker Network](https://rocketleague.tracker.network/) and look in the url, or go to your [Steam](https://steamcommunity.com/) profile page (browser or desktop client) and look there.
 
 *For Tracker Network*
-> https://rocketleague.tracker.network/profile/steam/**STEAM ID**
+> https://rocketleague.tracker.network/profile/steam/<**STEAM ID**>
 
 *For Steam*
-> https://steamcommunity.com/id/**STEAM ID**
+> https://steamcommunity.com/id/<**STEAM ID**>
 
 This ID can be either the name that you set when you created your Steam account *OR* a string of numbers. The Tracker Network will accept either when the url is built by the bot.
 
