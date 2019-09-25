@@ -79,9 +79,9 @@ This is a command specifically for League of Legends. When passed a champions na
 
 > Usage: /champ <Champion Name>
 
-###Queues
+### Queues
 
-####Notes
+#### Notes
 
 Queues can only be used in a channel named "queues". Only one queue can be active at a time, in the future maybe have a list of queue IDs to support multiple queues at once. This can be done by passing another parameter ID when calling the command and storing the queue by the created ID rather than the embed message ID. Then you could join a queue by /joinq <queue> instead.
 
