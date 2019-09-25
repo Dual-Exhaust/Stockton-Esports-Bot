@@ -1,43 +1,24 @@
 
 # stocktonbot
 
-## Installed libraries
+## Installed Packages
 
-Includes all of the libraries I have installed currently because I'm lazy and didn't feel like taking out the default ones
+See the [requirements file](https://github.com/Dual-Exhaust/Stockton-Esports-Bot/blob/master/requirements.txt) for the complete list and use the command below to install the packages
+
+> pip install -r /local/path/to/requirements.txt
+
+This includes all of the packages I have installed currently because I'm lazy and didn't feel like taking out the ones that are already there
 
 Use "pip freeze" when in terminal to get this list, or use "pip list" to get a formatted list of the packages and versions
 
-aiohttp==3.5.4
-async-timeout==3.0.1
-attrs==19.1.0
-beautifulsoup4==4.8.0
-certifi==2019.6.16
-chardet==3.0.4
-cycler==0.10.0
-discord.py==1.2.3
-idna==2.8
-kiwisolver==1.1.0
-matplotlib==3.1.1
-multidict==4.5.2
-numpy==1.17.1
-oauthlib==3.1.0
-pandas==0.25.1
-pyparsing==2.4.2
-PySocks==1.7.0
-python-dateutil==2.8.0
-pytz==2019.2
-requests==2.22.0
-requests-oauthlib==1.2.0
-six==1.12.0
-soupsieve==1.9.3
-tweepy==3.8.0
-urllib3==1.25.3
-websockets==6.0
-yarl==1.3.0
 
 ## Commands
 
 ### Help
+
+[main.py](https://github.com/Dual-Exhaust/Stockton-Esports-Bot/blob/4fd7f268cb257dc17165ff82362cfe36c8ee91ed/main.py#L227)
+[StocktonClient.py](https://github.com/Dual-Exhaust/Stockton-Esports-Bot/blob/4fd7f268cb257dc17165ff82362cfe36c8ee91ed/StocktonClient.py#L169)
+[Info.py](https://github.com/Dual-Exhaust/Stockton-Esports-Bot/blob/master/Classes/Info.py)
 
 #### help
 Use the help command by itself to get general knowledge of the other commands in the server.
@@ -49,6 +30,10 @@ You can also enter the name of another command to get a more in depth descriptio
 Output from the help command is sent directly to the user in a direct message.
 
 ### Role Moderation
+
+[main.py](https://github.com/Dual-Exhaust/Stockton-Esports-Bot/blob/4fd7f268cb257dc17165ff82362cfe36c8ee91ed/main.py#L34)
+[StocktonClient.py](https://github.com/Dual-Exhaust/Stockton-Esports-Bot/blob/4fd7f268cb257dc17165ff82362cfe36c8ee91ed/StocktonClient.py#L153)
+[Roles.py](https://github.com/Dual-Exhaust/Stockton-Esports-Bot/blob/master/Classes/Roles.py)
 
 #### accept
 Accept is only for when a new user joins the server; it is so they verify that they have read the rules and then it gives them the "auth-ed" role in the server. This grants them access to the rest of the server.
@@ -65,6 +50,10 @@ Removes a role from a user as specified. Similar to addrole, this command can on
 > Usage: /removerole <role name>
 
 ### Game Statistics
+
+[main.py](https://github.com/Dual-Exhaust/Stockton-Esports-Bot/blob/4fd7f268cb257dc17165ff82362cfe36c8ee91ed/main.py#L88)
+[StocktonClient.py](https://github.com/Dual-Exhaust/Stockton-Esports-Bot/blob/4fd7f268cb257dc17165ff82362cfe36c8ee91ed/StocktonClient.py#L105)
+[Stats.py](https://github.com/Dual-Exhaust/Stockton-Esports-Bot/blob/master/Classes/Stats.py)
 
 #### Notes 
 All statistic commands can possibly become broken due to a change in the website that we parse the data from. The sites are 3rd party sites and may not always have the most up to date statistics.
@@ -115,6 +104,10 @@ This is a command specifically for League of Legends. When passed a champions na
 
 ### Queues
 
+[main.py](https://github.com/Dual-Exhaust/Stockton-Esports-Bot/blob/4fd7f268cb257dc17165ff82362cfe36c8ee91ed/main.py#L156)
+[StocktonClient.py](https://github.com/Dual-Exhaust/Stockton-Esports-Bot/blob/4fd7f268cb257dc17165ff82362cfe36c8ee91ed/StocktonClient.py#L73)
+[Queue.py](https://github.com/Dual-Exhaust/Stockton-Esports-Bot/blob/master/Classes/Queue.py)
+
 #### Notes
 
 Queues can only be used in a channel named "queues". Only one queue can be active at a time, in the future maybe have a list of queue IDs to support multiple queues at once. This can be done by passing another parameter ID when calling the command and storing the queue by the created ID rather than the embed message ID. Then you could join a queue by /joinq <queue> instead.
@@ -152,6 +145,9 @@ This randomizes teams from the players in the current queue and sends a list of 
 
 ### Metrics
 
+[main.py](https://github.com/Dual-Exhaust/Stockton-Esports-Bot/blob/4fd7f268cb257dc17165ff82362cfe36c8ee91ed/main.py#L241)
+[Metrics.py](https://github.com/Dual-Exhaust/Stockton-Esports-Bot/blob/master/Classes/Metrics.py)
+
 #### server_stats
 
 This sends calendar heat maps to the user. The blue heat map represents when users join the discord server. The green heat map represents when the @StocktonEsports twitter account tweets. The heat maps are created using [this answer](https://stackoverflow.com/questions/32485907/matplotlib-and-numpy-create-a-calendar-heatmap/51977000#51977000) on stack overflow. The discord data is collected by parsing through the members in the server and viewing their **joined date**. The twitter data is collected using **tweepy** which is a python wrapper for the Twitter API. 
@@ -167,6 +163,8 @@ All this does is parse through each text channel in the server and keep a tally 
 ### Settings
 
 #### set\_send_link
+
+To see the code for this setting see the Game Statistics section
 
 This sets a setting to send the stats link along with the stats when they get sent to a user. It is only for statistics related to games themselves. This is so that they could easily view the page the stats came from as well as get a more in depth view.
 
