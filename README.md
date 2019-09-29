@@ -1,5 +1,5 @@
 
-# stocktonbot
+# Stockton Esports Bot
 
 ## Installed Packages
 
@@ -7,9 +7,9 @@ See the [requirements file](https://github.com/Dual-Exhaust/Stockton-Esports-Bot
 
 > pip install -r /local/path/to/requirements.txt
 
-This includes all of the packages I have installed currently because I'm lazy and didn't feel like taking out the ones that are already there
+This includes all of the packages I have installed currently because I'm lazy and didn't feel like taking out the ones that are there by default. It won't mess up the install though, as pip will recognize which dependencies are already installed. 
 
-Use "pip freeze" when in terminal to get this list, or use "pip list" to get a formatted list of the packages and versions
+Use "pip freeze" when in terminal to get this list, or use "pip list" to get a formatted list of the packages and versions.
 
 
 ## Commands
