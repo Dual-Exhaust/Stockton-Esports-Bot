@@ -46,47 +46,44 @@ Pip will then install the dependencies specified in the file.
 
 
 ## Linux
-**NOTE** For some reason the pandas install from the requirements does not work when running main.py after finishing this tutorial, not sure why, but remming out the pandas bits in main.py allows the program to compile/run successfully. This disables the commands in the TEST portion of the code. 
-This is a WIP as I have not yet had a chance to fully set it up on Linux yet. I have also not really reviewed this part of the setup tutorial so its a bit informal. This sort of assumes you have prior experience in Linux.
+**NOTE:** For some reason the pandas install from the requirements does not work when running main.py after finishing this tutorial, not sure why, but remming out the pandas bits in main.py allows the program to compile/run successfully. This disables the commands in the TEST portion of the code as well as some imports. 
 
-To begin with, if you use Linux already good for you but I'm going to tell you how to set up Windows Subsystem for Linux (WSL for short).
+This is a WIP as I have not yet had a chance to fully set it up on Linux yet. I have also not really reviewed this part of the setup tutorial so its a bit informal. This assumes you have prior experience in Linux.
 
-I lied, I won't teach you but [this article](https://docs.microsoft.com/en-us/windows/wsl/install-win10) will.
+If you are using Windows but want to use Linux, [this article](https://docs.microsoft.com/en-us/windows/wsl/install-win10) will show you how to run a Linux subsystem on Windows.
 
-I personally use Ubuntu 18.04 LTS but you are welcome to use whichever distribution you like if you prefer another. 
+I personally use **Ubuntu 18.04 LTS** but you are welcome to use whichever distribution you like if you prefer another. The rest of this tutorial will assume you are using Ubuntu 18.04 LTS.
 
-Next thing is you need to have **Python 3.7.3** installed, which [this tutorial](https://websiteforstudents.com/installing-the-latest-python-3-7-on-ubuntu-16-04-18-04/) for installing Python 3.7.x seemed to work. Keep in mind that is specifically for Ubuntu.
+Next thing is you need to have **Python 3.7.3** installed, which [this tutorial](https://websiteforstudents.com/installing-the-latest-python-3-7-on-ubuntu-16-04-18-04/) for installing Python 3.7.x seemed to work fine. I did **not** use the PPA section because I do not want Python to update automatically.
 
-Then you just need to make sure that you have pip installed as well as virtualenv and you should be all set to actually start cloning.
+Then you just need to make sure that you have pip and virtualenv installed before you actually start cloning.
 
-Ubuntu uses apt, so to install pip:
+To install pip:
 
 > sudo apt install python-pip
 
-Then to install virtualenv for python:
+To install virtualenv for python:
 
 > python3.7 -m pip install --user virtualenv
 
-From there you are all set to clone the git repo and activate your venv. I would make a test directory to clone the repo files to at first.
+From there you can clone the github repository and activate your virtual environment.
 
-From inside that directory:
+> git clone https://github.com/Dual-Exhaust/Stockton-Esports-Bot
 
->git clone https://github.com/Dual-Exhaust/Stockton-Esports-Bot
+This will make a directory called "Stockton-Esports-Bot" with all of the project files inside of it. 
 
-This will make a directory called "Stockton-Esports-Bot" with all the files inside of it. 
-
-Move into that directory and now we can create our venv. 
+Move into that directory and now we can create our virtual environment. 
 
 > python3 -m venv env
 
-This creates the venv and all the files it needs to run. All we did was create it, and it is not active yet. To activate it:
+This creates the virtual environment and all the files it needs to run. To activate the virtual environment:
 
 >source env/bin/activate
 
 You should see **(env)** before user@machine:/file/path
 
-Anything that you install with pip now will be installed to the venv and NOT your real environment, so we can now use:
+Anything that you install with pip now will be installed to the virtual environment and NOT your real environment, so we can now use:
 
 > pip install -r requirements.txt
 
-Your dependencies have been installed. When you are all done editing your code just remember to deactivate your venv and use your regular environment again. Just type "deactivate" to do so.
+Your dependencies have been installed. When you are all done editing and testing your code, just remember to deactivate your virtual environment. Just type "deactivate" to do so.
