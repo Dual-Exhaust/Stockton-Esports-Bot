@@ -46,7 +46,7 @@ Pip will then install the dependencies specified in the file.
 
 
 ## Linux
-
+**NOTE** For some reason the pandas install from the requirements does not work when running main.py after finishing this tutorial, not sure why, but remming out the pandas bits in main.py allows the program to compile/run successfully. This disables the commands in the TEST portion of the code. 
 This is a WIP as I have not yet had a chance to fully set it up on Linux yet. I have also not really reviewed this part of the setup tutorial so its a bit informal. This sort of assumes you have prior experience in Linux.
 
 To begin with, if you use Linux already good for you but I'm going to tell you how to set up Windows Subsystem for Linux (WSL for short).
