@@ -9,7 +9,7 @@ from Classes.Info import Info
 from StocktonClient import StocktonClient
 
 import pandas as pd
-from Classes import Metrics, Twitter
+from Classes import Metrics, Twitter, Leaderboard
 
 # This is the object that we use to manipulate the Twitter API
 tw = Twitter.TweetData()
@@ -272,7 +272,40 @@ async def server_activity(ctx):
     series = series.sort_values(ascending=False)
     print(series.to_string())
     print(len(series))
+
+
+# =====================================Leaderboards===========================================
+
+@client.command(pass_context=True)
+async def adt_lol(ctx, arg):
+    await ctx.message.delete()
+    Leaderboard.LoLBoard.add_team(arg)
+
+
+@client.command(pass_context=True)
+async def rmt_lol(ctx, arg):
+    await ctx.message.delete()
+    Leaderboard.LoLBoard.remove_team(arg)
+
+
+@client.command(pass_context=True)
+async def gp_lol(ctx, arg, points):
+    await ctx.message.delete()
+    Leaderboard.LoLBoard.give_points(arg, points)
+
+
+@client.command(pass_context=True)
+async def rmp_lol(ctx, arg, points):
+    await ctx.message.delete()
+    Leaderboard.LoLBoard.remove_points(arg, points)
+
+
+@client.command(pass_context=True)
+async def lb_lol(ctx):
+    await ctx.message.delete()
+    await ctx.message.author.send(embed=Leaderboard.LoLBoard.get_leaderboard())
+
 # =====================================RUNS THE BOT===========================================
 
-token = "DISCORD TOKEN HERE"
+token = "NTg5Mjc4NjQxMDQ5ODI5NDE2.XQRW0w.jTe7iZxEtuGe_KyLsxOdkZ9EP5E"
 client.run(token)
