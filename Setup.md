@@ -1,4 +1,15 @@
 # Initial Setup
+_**General notes:**_
+In order to use pickle with the dictionaries that hold user ID's (for the stats methods), you have to keep in mind that when you are using pickle you are not allowed to unpickle files that are empty, it throws an EOFError: ran out of input. This makes sense enough, you just need to somehow make the file not empty.
+To create a new data file I just manually created a dictionary object and pickled it to the file first, then took out that code so we only had the file holding the pickled dictionary object. The up to date code un-pickles the dictionary object **first** so it can manipulate it, but since the error was getting thrown when the file was empty I _*needed*_ to add a "default" value in the pickled dictionary. What should be changed is that there should be a try/catch around the code and on fail check the type of error, if it is EOFError, then call a few lines that add an item to a dict and then save it to the file **before** you try to manipulate the dict. So essentially:
+
+> try (un-pickle dict) catch on EOFError (manually add default item to a dict and pickle it to the file), _**then**_ (un-pickle dict as norrmal and do what you need to do)
+
+You only need one item in a single dict that is pickled to a file to be able to un-pickle it.
+
+The reason this snippet is in setup is because the files that hold the dictionaries of user IDs are not included in the repo for user privacy purposes. You need to make sure these files are present, and functional otherwise the bot commands using them will error.
+
+Probably should rework that a little tbh.
 
 ## Windows
 I personally prefer to use PyCharm as my IDE for python related projects. You can download the free community version [here](https://www.jetbrains.com/pycharm/download/#section=windows).
