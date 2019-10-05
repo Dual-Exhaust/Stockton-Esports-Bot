@@ -307,5 +307,5 @@ async def lb_lol(ctx):
 
 # =====================================RUNS THE BOT===========================================
 
-token = "NTg5Mjc4NjQxMDQ5ODI5NDE2.XQRW0w.jTe7iZxEtuGe_KyLsxOdkZ9EP5E"
+token = "DISCORD_TOKE_HERE"
 client.run(token)
