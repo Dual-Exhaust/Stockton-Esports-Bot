@@ -3,6 +3,7 @@ import pickle
 import bs4
 import discord
 import requests
+import os
 from discord.ext import commands
 
 from Classes.Info import Info
