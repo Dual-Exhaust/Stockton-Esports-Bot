@@ -11,8 +11,10 @@ The reason this snippet is in setup is because the files that hold the dictionar
 
 Probably should rework that a little tbh.
 
+I absolutely recommend using Linux, but it is just my personal preference.
+
 ## Windows
-I personally prefer to use PyCharm as my IDE for python related projects. You can download the free community version [here](https://www.jetbrains.com/pycharm/download/#section=windows).
+I personally prefer to use PyCharm as my IDE for python related projects in Windows. You can download the free community version [here](https://www.jetbrains.com/pycharm/download/#section=windows).
 
 You also may need [Git](https://git-scm.com/) installed depending on how you wish to set up your files, and I highly recommend it.
 
@@ -55,17 +57,25 @@ It will notice the requirements.txt file and will try to display a warning for y
 
 Pip will then install the dependencies specified in the file.
 
+I still have not yet found a way to get a .env file to work inside of PyCharm, I had hardcoded the token into the code (which is really bad practice) so I could make sure this tutorial worked and then took it out before I committed files.
 
 ## Linux
 **NOTE:** For some reason the pandas install from the requirements does not work when running main.py after finishing this tutorial, not sure why, but remming out the pandas bits in main.py allows the program to compile/run successfully. This disables the commands in the TEST portion of the code as well as some imports. 
 
 This is a WIP as I have not yet had a chance to fully set it up on Linux yet. I have also not really reviewed this part of the setup tutorial so its a bit informal. This assumes you have prior experience in Linux.
 
+### Windows Subsystem for Linux 
 If you are using Windows but want to use Linux, [this article](https://docs.microsoft.com/en-us/windows/wsl/install-win10) will show you how to run a Linux subsystem on Windows.
 
 I personally use **Ubuntu 18.04 LTS** but you are welcome to use whichever distribution you like if you prefer another. The rest of this tutorial will assume you are using Ubuntu 18.04 LTS.
 
-Next thing is you need to have **Python 3.7.3** installed, which [this tutorial](https://websiteforstudents.com/installing-the-latest-python-3-7-on-ubuntu-16-04-18-04/) for installing Python 3.7.x seemed to work fine. I did **not** use the PPA section because I do not want Python to update automatically.
+### Python3.7 Install
+Next thing is you need to have **Python 3.7.3** installed, which [this tutorial](https://websiteforstudents.com/installing-the-latest-python-3-7-on-ubuntu-16-04-18-04/) for installing Python 3.7.x seemed to work fine. I did **not** use the PPA section because I do not want Python to update automatically. **BEFORE** you follow that tutorial please make sure to call these two bash commands:
+
+> sudo apt-get install libbz2-dev
+> sudo apt-get install liblzma-dev
+
+Those libraries are necessary when using some imported packages with python, and they are not included when building python with the tutorial.
 
 Then you just need to make sure that you have pip and virtualenv installed before you actually start cloning.
 
@@ -77,7 +87,8 @@ To install virtualenv for python:
 
 > python3.7 -m pip install --user virtualenv
 
-From there you can clone the github repository and activate your virtual environment.
+### Git Clone and Virtual Environment Setup
+You can now clone the github repository and activate your virtual environment.
 
 > git clone https://github.com/Dual-Exhaust/Stockton-Esports-Bot
 
@@ -85,11 +96,11 @@ This will make a directory called "Stockton-Esports-Bot" with all of the project
 
 Move into that directory and now we can create our virtual environment. 
 
-> python3 -m venv env
+> python3.7 -m venv env
 
 This creates the virtual environment and all the files it needs to run. To activate the virtual environment:
 
->source env/bin/activate
+> source env/bin/activate
 
 You should see **(env)** before user@machine:/file/path
 
@@ -98,3 +109,18 @@ Anything that you install with pip now will be installed to the virtual environm
 > pip install -r requirements.txt
 
 Your dependencies have been installed. When you are all done editing and testing your code, just remember to deactivate your virtual environment. Just type "deactivate" to do so.
+
+### .env Setup
+At the bottom of main.py you will notice a line that sets a variable named 'token'. This variable is our Discord API key. The variable is stored in a .env file that is not included in the repo. You will need to obtain your own key in order to connect to your own Discord bot, and then create a .env file that holds the key.
+
+[This tutorial](https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token) goes over how to create a Discord bot and connect it to your testing server.
+
+Create an .env file in the project directory and add the following line to it:
+> DISCORD_TOKEN='INSERT YOUR TOKEN HERE'
+
+Now we need to load the .env file so your code can access it. Enter this line into the console:
+> set -a; source ./.env; set +a;
+
+Type "echo $DISCORD_TOKEN" to make sure it worked. You should see your token printed to the console.
+
+You should now be all set to start programming!
