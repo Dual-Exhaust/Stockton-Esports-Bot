@@ -1,15 +1,16 @@
 # Initial Setup
 _**General notes:**_
-In order to use pickle with the dictionaries that hold user ID's (for the stats methods), you have to keep in mind that when you are using pickle you are not allowed to unpickle files that are empty, it throws an EOFError: ran out of input. This makes sense enough, you just need to somehow make the file not empty.
-To create a new data file I just manually created a dictionary object and pickled it to the file first, then took out that code so we only had the file holding the pickled dictionary object. The up to date code un-pickles the dictionary object **first** so it can manipulate it, but since the error was getting thrown when the file was empty I _*needed*_ to add a "default" value in the pickled dictionary. What should be changed is that there should be a try/catch around the code and on fail check the type of error, if it is EOFError, then call a few lines that add an item to a dict and then save it to the file **before** you try to manipulate the dict. So essentially:
+~~In order to use pickle with the dictionaries that hold user ID's (for the stats methods), you have to keep in mind that when you are using pickle you are not allowed to unpickle files that are empty, it throws an EOFError: ran out of input. This makes sense enough, you just need to somehow make the file not empty.
+To create a new data file I just manually created a dictionary object and pickled it to the file first, then took out that code so we only had the file holding the pickled dictionary object. The up to date code un-pickles the dictionary object **first** so it can manipulate it, but since the error was getting thrown when the file was empty I _*needed*_ to add a "default" value in the pickled dictionary. What should be changed is that there should be a try/catch around the code and on fail check the type of error, if it is EOFError, then call a few lines that add an item to a dict and then save it to the file **before** you try to manipulate the dict. So essentially:~~
 
-> try (un-pickle dict) catch on EOFError (manually add default item to a dict and pickle it to the file), _**then**_ (un-pickle dict as norrmal and do what you need to do)
+> ~~try (un-pickle dict) catch on EOFError (manually add default item to a dict and pickle it to the file), _**then**_ (un-pickle dict as norrmal and do what you need to do)~~
 
-You only need one item in a single dict that is pickled to a file to be able to un-pickle it.
+~~You only need one item in a single dict that is pickled to a file to be able to un-pickle it.~~
+The code should now automatically create the files necessary and add a default listing in the dictionaries when set ID commands are called. I believe that if you call a stat getter before an id setter (before the dictionary file is created) it will break as I have not yet had a chance to rework the stat getters themselves.
 
 The reason this snippet is in setup is because the files that hold the dictionaries of user IDs are not included in the repo for user privacy purposes. You need to make sure these files are present, and functional otherwise the bot commands using them will error.
 
-Probably should rework that a little tbh.
+If multiple instances of code are running and you call a command that exists in both instances of code where the code deletes the command message (as it should), then the instance of code that recieves the request first will delete the message and the other instances will throw a 404 not found error as they tried to delete a message that already had been deleted. The only reason I put this here is that sometimes I work from Windows and sometimes I work from Linux, and I don't always stop execution of the code which actually caused this issue to arise. Just something to remember while you program because there could be a lot of things that go wrong due to running multiple instances of code.
 
 I absolutely recommend using Linux, but it is just my personal preference.
 
