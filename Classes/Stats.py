@@ -69,16 +69,27 @@ class Dictionary:
         pass
 
     @staticmethod
+    # This works for now but it may be easier to check if the file exists using os.path.isfile rather than a try catch statement, not sure what is best
     def add_item(user, arg, dictionary):
-        with open(dictionary, 'rb') as config_dictionary_file:
-            db = pickle.load(config_dictionary_file)
-        # changes or concatonates the value we want to add to the dictionary
-        db[user] = str(arg)
-        # opens the file again and writes the updated dictionary object to it
-        with open(dictionary, 'wb') as config_dictionary_file:
-            db = pickle.dump(db, config_dictionary_file)
+        # try to open the dictionary file to add the item too
+        try:
+            with open(dictionary, 'r+b') as config_dictionary_file:
+                db = pickle.load(config_dictionary_file)
+        # if the file does not exist then we create a default dictionary, create the file (xb), and write the dict to it
+        except FileNotFoundError:
+            db = {'Default User': 'Default ID'}
+            with open(dictionary, 'xb') as config_dictionary_file:
+                db = pickle.dump(db, config_dictionary_file)
+        # by this point there is definitely a file and we can manipulate it to add the item
+        finally:
+            with open(dictionary, 'r+b') as config_dictionary_file:
+                db = pickle.load(config_dictionary_file)
+            # changes or concatonates the value we want to add to the dictionary
+            db[user] = str(arg)
+            with open(dictionary, 'wb') as config_dictionary_file:
+            # writes the updated dictionary object to the file
+                db = pickle.dump(db, config_dictionary_file)
         return db
-
 
 class LoLInfo:
     def __init__(self, arg):
