@@ -160,7 +160,7 @@ All this does is parse through each text channel in the server and keep a tally 
 
 > Usage: /server_activity
 
-### Settings
+### Admin Controls
 
 #### set\_send_link
 
@@ -169,3 +169,10 @@ To see the code for this setting see the Game Statistics section
 This sets a setting to send the stats link along with the stats when they get sent to a user. It is only for statistics related to games themselves. This is so that they could easily view the page the stats came from as well as get a more in depth view.
 
 > Usage: /set\_send_link <boolean>
+  
+  #### kill
+  [main.py](https://github.com/Dual-Exhaust/Stockton-Esports-Bot/blob/8c569c602fb79a567ab3e068ad96befa01b4bfe1/main.py#L309)
+  
+  This closes the bots connection with Discord. Essentially just turns it off.
+  
+  > Usage: /kill
