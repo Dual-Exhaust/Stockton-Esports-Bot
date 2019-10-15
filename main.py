@@ -309,6 +309,7 @@ async def lb_lol(ctx):
 # =====================================Kill Bot from Server===================================
 
 @client.command(pass_context=True)
+@commands.has_role("Admin")
 async def kill(ctx):
     await ctx.message.delete()
     await client.logout()
