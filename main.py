@@ -306,6 +306,13 @@ async def lb_lol(ctx):
     await ctx.message.delete()
     await ctx.message.author.send(embed=Leaderboard.LoLBoard.get_leaderboard())
 
+# =====================================Kill Bot from Server===================================
+
+@client.command(pass_context=True)
+async def kill(ctx):
+    await ctx.message.delete()
+    await client.logout()
+
 # =====================================RUNS THE BOT===========================================
 
 token = os.environ["DISCORD_TOKEN"]
