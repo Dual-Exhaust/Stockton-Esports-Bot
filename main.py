@@ -6,11 +6,11 @@ import requests
 import os
 from discord.ext import commands
 
-from Classes.Info import Info
+from classes.Info import Info
 from StocktonClient import StocktonClient
 
 import pandas as pd
-from Classes import Metrics, Twitter, Leaderboard
+from classes import Metrics, Twitter, Leaderboard
 
 # This is the object that we use to manipulate the Twitter API
 tw = Twitter.TweetData()
