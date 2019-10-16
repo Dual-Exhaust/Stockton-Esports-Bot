@@ -309,17 +309,10 @@ async def lb_lol(ctx):
 # =====================================Kill Bot from Server===================================
 
 @client.command(pass_context=True)
-@commands.has_role("Admin")
+@commands.has_role("Moderator") 
 async def kill(ctx):
     await ctx.message.delete()
     await client.logout()
-
-@kill.error
-async def kill_error(ctx, error):
-    pass
-    # await ctx.message.delete()
-    #if isinstance(error, discord.ext.commands.errors.MissingRole):
-    #    await ctx.author.send(error)
 
 # =====================================RUNS THE BOT===========================================
 
