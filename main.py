@@ -54,7 +54,7 @@ async def addrole(ctx, role):
         await ctx.message.author.send("```" + str(user) + ", something went wrong. Please make sure the role "
                                                           "exists, is spelled correctly, you do not have the "
                                                           "role, and you have the permission to add it. If you"
-                                                          " still cannot remove the role, contact @Dual#3727 or"
+                                                          " still cannot add the role, contact @Dual#3727 or"
                                                           " another Admin for assistance.```")
 
 

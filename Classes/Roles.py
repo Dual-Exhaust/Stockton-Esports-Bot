@@ -35,6 +35,9 @@ class Roles:
         return False
 
     async def add_role(self, role, user):
+        for each in user.guild.roles:
+            if role.upper() == each.name.upper():
+                role = each.name
         if self.check_user_is_authed(user=user):
             if self.check_role_exists(role=role, guild=user.guild):
                 if self.check_role_is_allowed(role=role):
@@ -45,6 +48,9 @@ class Roles:
         return False
 
     async def remove_role(self, role, user):
+        for each in user.guild.roles:
+            if role.upper() == each.name.upper():
+                role = each.name
         if self.check_user_is_authed(user=user):
             if self.check_role_exists(role=role, guild=user.guild):
                 if self.check_role_is_allowed(role=role):
