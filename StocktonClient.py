@@ -41,7 +41,12 @@ class StocktonClient(commands.Bot):
         print("Bot's Discord Username: " + str(self.user))
         Logger.log_event("Bot Joined", "An instance of the StocktonBot has joined the Stockton Esports server.",
                          str(datetime.datetime.now()))
-
+    
+    # ========================================Generic Command Error======================================
+    @staticmethod
+    async def on_command_error(ctx, error):
+        await ctx.message.delete()
+        await ctx.author.send('```Error: ' + str(error) + '```')
     # ==================================Welcome Message===================================================
     @staticmethod
     async def on_member_join(member):

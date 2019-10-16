@@ -74,14 +74,14 @@ async def removerole(ctx, role):
 
 @addrole.error
 async def addrole_error(ctx, error):
-    await ctx.message.delete()
+    #await ctx.message.delete()
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.message.author.send(embed=Info.get_addrole_help())
 
 
 @removerole.error
 async def removerole_error(ctx, error):
-    await ctx.message.delete()
+    #await ctx.message.delete()
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.message.author.send(embed=Info.get_removerole_help())
 
@@ -106,7 +106,7 @@ async def setfnid(ctx, arg):
 
 @setfnid.error
 async def setfnid_error(ctx, error):
-    await ctx.message.delete()
+    #await ctx.message.delete()
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.message.author.send(embed=Info.get_set_id_help())
 
@@ -120,7 +120,7 @@ async def setsteamid(ctx, arg):
 
 @setsteamid.error
 async def setsteamid_error(ctx, error):
-    await ctx.message.delete()
+    #await ctx.message.delete()
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.message.author.send(embed=Info.get_set_id_help())
 
@@ -149,7 +149,7 @@ async def champ(ctx, champion):
 
 @champ.error
 async def champ_error(ctx, error):
-    await ctx.message.delete()
+    #await ctx.message.delete()
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.message.author.send(embed=Info.get_champ_help())
 
@@ -172,7 +172,7 @@ async def createq(ctx, arg, arg1):
 
 @createq.error
 async def createq_error(ctx, error):
-    await ctx.message.delete()
+    # await ctx.message.delete()
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.message.author.send(embed=Info.get_queue_help())
 
@@ -234,7 +234,7 @@ async def help(ctx, arg):
 
 @help.error
 async def help_error(ctx, error):
-    await ctx.message.delete()
+    # await ctx.message.delete()
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.message.author.send(embed=Info.get_help())
 
@@ -313,6 +313,13 @@ async def lb_lol(ctx):
 async def kill(ctx):
     await ctx.message.delete()
     await client.logout()
+
+@kill.error
+async def kill_error(ctx, error):
+    pass
+    # await ctx.message.delete()
+    #if isinstance(error, discord.ext.commands.errors.MissingRole):
+    #    await ctx.author.send(error)
 
 # =====================================RUNS THE BOT===========================================
 
