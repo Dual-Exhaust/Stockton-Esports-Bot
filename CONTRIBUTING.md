@@ -125,3 +125,6 @@ Now we need to load the .env file so your code can access it. Enter this line in
 Type "echo $DISCORD_TOKEN" to make sure it worked. You should see your token printed to the console.
 
 You should now be all set to start programming!
+
+# Contributions
+Any and all contributions are welcome as long as they follow the [code of conduct](https://github.com/Dual-Exhaust/Stockton-Esports-Bot/blob/master/CODE_OF_CONDUCT.md). Please submit a pull request to merge your contributions with the project.
