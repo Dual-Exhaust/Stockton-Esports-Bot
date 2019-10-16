@@ -42,11 +42,11 @@ Accept is only for when a new user joins the server; it is so they verify that t
 This can also be used to gain the auth-ed role at any time, should an accident happen and it gets removed from a user manually.
 
 #### addrole
-Specifically for adding roles to a user, by the user themselves. They should be able to add any role for specific games that exist in the server. They *should not* be able to add roles such as "Game-manager" or "Moderator". At the moment role names entered as a parameter have to be case sensitive to the roles that exist in the server.
+Specifically for adding roles to a user, by the user themselves. They should be able to add any role for specific games that exist in the server. They *should not* be able to add roles such as "Game-manager" or "Moderator". Role names entered as a parameter can now be case insensative.
 > Usage: addrole <role name>
 
 #### removerole
-Removes a role from a user as specified. Similar to addrole, this command can only manipulate game specific roles, *not* roles such as "auth-ed" or "Moderator". Role names passed as a parameter must also be case sensitive to the existing role in the server.
+Removes a role from a user as specified. Similar to addrole, this command can only manipulate game specific roles, *not* roles such as "auth-ed" or "Moderator". Role names entered as a parameter can now be case insensative.
 > Usage: /removerole <role name>
 
 ### Game Statistics
