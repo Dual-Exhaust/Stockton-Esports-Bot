@@ -3,12 +3,12 @@ import datetime
 import discord
 from discord.ext import commands
 
-from classes.BackgroundTasks import BackgroundTasks
-from classes.Info import Info
-from classes.Logger import Logger
-from classes.Queue import Queue
-from classes.Roles import Roles
-from classes.Stats import Dictionary, Fortnite, RocketLeague, LoLInfo
+from stocktonesportsbot.classes.BackgroundTasks import BackgroundTasks
+from stocktonesportsbot.classes.Info import Info
+from stocktonesportsbot.classes.Logger import Logger
+from stocktonesportsbot.classes.Queue import Queue
+from stocktonesportsbot.classes.Roles import Roles
+from stocktonesportsbot.classes.Stats import Dictionary, Fortnite, RocketLeague, LoLInfo
 
 
 # create your own class that is basically a discord client but with your customizations

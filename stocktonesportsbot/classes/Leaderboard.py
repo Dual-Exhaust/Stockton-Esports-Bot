@@ -1,5 +1,5 @@
 import discord
-from classes.Stats import Dictionary
+from stocktonesportsbot.classes.Stats import Dictionary
 import pickle
 
 # use a dictionary + pickle to store the data

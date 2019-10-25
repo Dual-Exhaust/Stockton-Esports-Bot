@@ -1,0 +1,4 @@
+# Credentials file that will link to the Google app
+include *.md 
+include requirements.txt
+include LICENSE
