@@ -1,19 +1,26 @@
 from setuptools import setup
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+
 setup(name='stocktonesportsbot',
-    version='1.0',
+    version='1.1',
     description='A Discord bot for Stockton Universities Esports Discord Server',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     url='https://github.com/Dual-Exhaust/Stockton-Esports-Bot',
     author='Dual-Exhaust',
     author_email='kylecsacco@gmail.com',
     license='MIT',
     packages=['stocktonesportsbot', 'stocktonesportsbot/classes'],
     scripts=['bin/startbot', 'bin/launch.sh'],
-    install_requires=['aiohttp==3.5.4', 
-        'async-timeout==3.0.1', 
-        'attrs==19.1.0', 
-        'beautifulsoup4==4.8.0', 
-        'certifi==2019.6.16', 
+    python_requires='>=3.7',
+    install_requires=['aiohttp==3.5.4',
+        'async-timeout==3.0.1',
+        'attrs==19.1.0',
+        'beautifulsoup4==4.8.0',
+        'certifi==2019.6.16',
         'chardet==3.0.4',
         'cycler==0.10.0',
         'discord.py==1.2.3',
@@ -38,5 +45,3 @@ setup(name='stocktonesportsbot',
         'yarl==1.3.0'],
     include_package_data=True,
     zip_safe=False)
-
-
