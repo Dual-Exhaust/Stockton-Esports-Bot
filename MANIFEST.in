@@ -1,4 +1,4 @@
-# Credentials file that will link to the Google app
+# Include text documents that need to be with the package
 include *.md 
 include requirements.txt
 include LICENSE
