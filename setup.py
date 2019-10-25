@@ -3,7 +3,7 @@ from setuptools import setup
 setup(name='stocktonesportsbot',
     version='0.9',
     description='A Discord bot for Stockton Universities Esports Discord Server',
-    url='https://github.com/Dual-Exhaust/drivel',
+    url='https://github.com/Dual-Exhaust/Stockton-Esports-Bot',
     author='Dual-Exhaust',
     author_email='kylecsacco@gmail.com',
     license='MIT',
