@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='stocktonesportsbot',
-    version='0.9',
+    version='1.0',
     description='A Discord bot for Stockton Universities Esports Discord Server',
     url='https://github.com/Dual-Exhaust/Stockton-Esports-Bot',
     author='Dual-Exhaust',
