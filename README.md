@@ -1,16 +1,15 @@
 
 # Stockton Esports Bot
 
-## Installed Packages
+## Install
+Create a directory that you want to run the bot in. It can create files for storage as commands are called.
+You need to have a .env file inside this directory that contains the discord api key. This is the same file that should hold your twitter api key as well.
 
-See the [requirements file](https://github.com/Dual-Exhaust/Stockton-Esports-Bot/blob/master/requirements.txt) for the complete list and use the command below to install the packages
+> pip install stocktonesportsbot
 
-> pip install -r /local/path/to/requirements.txt
+Now use the launch command inside your new directory. The bot will start up.
 
-This includes all of the packages I have installed currently because I'm lazy and didn't feel like taking out the ones that are there by default. It won't mess up the install though, as pip will recognize which dependencies are already installed. 
-
-Use "pip freeze" when in terminal to get this list, or use "pip list" to get a formatted list of the packages and versions.
-
+> launch.sh
 
 ## Commands
 
