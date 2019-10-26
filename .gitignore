@@ -1,0 +1,10 @@
+.env
+
+log.txt
+
+env/*
+
+dist/*
+
+*.egg-info
+*.egg
