@@ -1,15 +1,23 @@
 
 # Stockton Esports Bot
 
-## Install
+## Install and Run
 Create a directory that you want to run the bot in. It can create files for storage as commands are called.
-You need to have a .env file inside this directory that contains the discord api key. This is the same file that should hold your twitter api key as well.
+You need to have a .env file inside this directory that contains the discord api key. This is the same file that should hold your twitter api key and twitter api secret as well.
+
+Install the package using pip. This requires using python3.7.x.
 
 > pip install stocktonesportsbot
 
 Now use the launch command inside your new directory. The bot will start up.
 
 > launch.sh
+
+If you  were using AWS or another hosting service and you have already installed the package on the server instance:
+
+> nohup launch.sh > nohup.out &
+
+This will run the bot in the background, disconnected from the shell you are using. That means you can close the shell and the bot will continue to run. 
 
 ## Commands
 
