@@ -10,7 +10,7 @@ class TweetData:
 
     def __init__(self):
         # Twitter api key, this connects tweepy to the Twitter API using your API key
-        self.auth = tweepy.OAuthHandler('API KEY', 'API SECRET KEY')
+        self.auth = tweepy.OAuthHandler(os.environ["TWITTER_API_KEY"], os.environ["TWITTER_API_SECRET"])
         self.api = tweepy.API(self.auth)
 
     def tweet_dates(self):
