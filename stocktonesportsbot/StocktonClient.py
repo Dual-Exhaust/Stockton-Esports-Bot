@@ -189,6 +189,8 @@ class StocktonClient(commands.Bot):
         elif str(arg).lower() == "queue" or str(arg).lower() == "createq" or str(arg).lower() == "endq" \
                 or str(arg).lower() == "joinq" or str(arg).lower() == "leaveq" or str(arg).lower() == "getq":
             return Info.get_queue_help()
+        elif str(arg).lower() == 'default':
+            return Info.get_help()
 
     # =============================React for roles============================================================
     # if bot is in multiple servers and user is in the same servers this breaks

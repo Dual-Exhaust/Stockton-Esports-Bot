@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 
 setup(name='stocktonesportsbot',
-    version='1.1',
+    version='1.2',
     description='''A Discord bot for Stockton University's Esports Discord Server''',
     long_description=long_description,
     long_description_content_type='text/markdown',

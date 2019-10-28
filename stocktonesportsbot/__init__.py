@@ -227,16 +227,9 @@ async def getq(ctx):
 
 # ======================================HELP==============================================
 @client.command(pass_context=True)
-async def help(ctx, arg):
+async def help(ctx, arg='default'):
     await ctx.message.delete()
     await ctx.message.author.send(embed=client.get_help(arg))
-
-
-@help.error
-async def help_error(ctx, error):
-    # await ctx.message.delete()
-    if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.message.author.send(embed=Info.get_help())
 
 
 # =======================TEST ONLY====================================
