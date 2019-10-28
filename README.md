@@ -17,7 +17,7 @@ If you  were using AWS or another hosting service and you have already installed
 
 > nohup launch.sh > nohup.out &
 
-This will run the bot in the background, disconnected from the shell you are using. That means you can close the shell and the bot will continue to run. 
+This will run the bot in the background, disconnected from the shell you are using. That means you can close the shell and the bot will continue to run. Be careful though as console output will be written to the file "nohup.out", meaning that if the bot errors on startup you will not see it and your bot will not start. Do check discord to make sure that the bot is online before closing your shell.
 
 ## Commands
 
