@@ -1,5 +1,5 @@
 import datetime
-
+import qsbot
 import discord
 from discord.ext import commands
 
@@ -15,29 +15,21 @@ from stocktonesportsbot.classes.Stats import Dictionary, Fortnite, RocketLeague,
 # commands.Bot is the super class
 # This not only uses the functionality of commands.Bot but it acts as the middle ground between
 # the main and the other classes
-class StocktonClient(commands.Bot):
+class StocktonClient(qsbot.client):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # lets you use multiple prefixes
-        self.command_prefix = self.get_prefix
         self.case_insensitive = True
         self.queue = None
         self.send_link = False
         self.roles = Roles()
         self.bg_task_change_status = self.loop.create_task(BackgroundTasks.change_status(self))
 
-    # ==================================Using Multiple Prefixes=================================
-    # The command prefixes
-    @staticmethod
-    async def get_prefix(message):
-        prefixes = ['/', '=', '.']
-        return prefixes
-
     # =========================Shows that the bot has connected=================================
 
     async def on_ready(self):
-        print("Connected To Server.")
+        await super().on_ready()
         print("Bot's Discord Username: " + str(self.user))
         Logger.log_event("Bot Joined", "An instance of the StocktonBot has joined the Stockton Esports server.",
                          str(datetime.datetime.now()))
@@ -192,61 +184,3 @@ class StocktonClient(commands.Bot):
         elif str(arg).lower() == 'default':
             return Info.get_help()
 
-    # =============================React for roles============================================================
-    # if bot is in multiple servers and user is in the same servers this breaks
-    async def on_raw_reaction_add(self, payload):
-        if payload.channel_id == 498913415415463946 or payload.channel_id == 507986344929263639:
-            member = discord.utils.get(self.get_all_members(), name=self.get_user(payload.user_id).name)
-        else:
-            return
-        if payload.emoji.name == 'agree':
-            role = discord.utils.get(member.guild.roles, name="Auth-ed")
-            await member.add_roles(role)
-        if payload.emoji.name == 'Fortnite':
-            role = discord.utils.get(member.guild.roles, name="Fortnite")
-            await member.add_roles(role)
-        if payload.emoji.name == 'GC':
-            role = discord.utils.get(member.guild.roles, name="Rocket League")
-            await member.add_roles(role)
-        if payload.emoji.name == 'CSGO':
-            role = discord.utils.get(member.guild.roles, name="CS:GO")
-            await member.add_roles(role)
-        if payload.emoji.name == 'HS':
-            role = discord.utils.get(member.guild.roles, name="Hearthstone")
-            await member.add_roles(role)
-        if payload.emoji.name == 'LoL':
-            role = discord.utils.get(member.guild.roles, name="League")
-            await member.add_roles(role)
-        if payload.emoji.name == 'SmashBall':
-            role = discord.utils.get(member.guild.roles, name="SBU")
-            await member.add_roles(role)
-        if payload.emoji.name == 'Overwatch':
-            role = discord.utils.get(member.guild.roles, name="Overwatch")
-            await member.add_roles(role)
-
-    async def on_raw_reaction_remove(self, payload):
-        if payload.channel_id == 507986344929263639:
-            member = discord.utils.get(self.get_all_members(), name=self.get_user(payload.user_id).name)
-        else:
-            return
-        if payload.emoji.name == 'Fortnite':
-            role = discord.utils.get(member.guild.roles, name="Fortnite")
-            await member.remove_roles(role)
-        if payload.emoji.name == 'GC':
-            role = discord.utils.get(member.guild.roles, name="Rocket League")
-            await member.remove_roles(role)
-        if payload.emoji.name == 'CSGO':
-            role = discord.utils.get(member.guild.roles, name="CS:GO")
-            await member.remove_roles(role)
-        if payload.emoji.name == 'HS':
-            role = discord.utils.get(member.guild.roles, name="Hearthstone")
-            await member.remove_roles(role)
-        if payload.emoji.name == 'LoL':
-            role = discord.utils.get(member.guild.roles, name="League")
-            await member.remove_roles(role)
-        if payload.emoji.name == 'SmashBall':
-            role = discord.utils.get(member.guild.roles, name="SBU")
-            await member.remove_roles(role)
-        if payload.emoji.name == 'Overwatch':
-            role = discord.utils.get(member.guild.roles, name="Overwatch")
-            await member.remove_roles(role)
