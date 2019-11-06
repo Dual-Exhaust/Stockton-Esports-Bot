@@ -35,13 +35,12 @@ class StocktonClient(qsbot.client):
                          str(datetime.datetime.now()))
     
     # ========================================Generic Command Error======================================
-    @staticmethod
-    async def on_command_error(ctx, error):
+    async def on_command_error(self, ctx, error):
+        await super().on_command_error(ctx, error)
         await ctx.message.delete()
-        await ctx.author.send('```Error: ' + str(error) + '```')
     # ==================================Welcome Message===================================================
     @staticmethod
-    async def on_member_join(member):
+    def get_welcome_message():
         embed = discord.Embed(colour=discord.Colour.from_rgb(121, 219, 233))
         embed.add_field(name="__**Welcome!**__",
                         value="Welcome to the Stockton University Esports Server!\nThe only channel you can view right "
@@ -64,7 +63,10 @@ class StocktonClient(qsbot.client):
                         value="If you have friends who are Stockton Students and who are into competitive gaming "
                               "and want to play for Stockton University please invite them to the discord "
                               "with the link provided: https://discordapp.com/invite/4QgYAXQ")
-        await member.send(embed=embed)
+        return embed
+    
+    async def on_member_join(self, member):
+        await super().on_member_join(member)
         Logger.log_event("Member Join", str(member) + " has joined the server.", str(datetime.datetime.now()))
 
     # ======================================Queues============================================

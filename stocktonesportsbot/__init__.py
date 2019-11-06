@@ -42,7 +42,7 @@ client.add_reaction_for_role('Overwatch','Overwatch')
 
 client.set_on_ready_message('Connected to the server.\nDiscord Py Version: ' + discord.__version__)
 
-
+client.set_welcome_message(client.get_welcome_message())
 
 # ===========================ROLES===========================================
 @client.command(pass_context=True)
