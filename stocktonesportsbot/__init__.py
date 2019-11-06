@@ -5,7 +5,7 @@ import discord
 import requests
 import os
 from discord.ext import commands
-
+import qsbot
 from stocktonesportsbot.classes.Info import Info
 from stocktonesportsbot.StocktonClient import StocktonClient
 
@@ -20,17 +20,29 @@ tw = Twitter.TweetData()
 
 # ========================Initial Set Up=========================
 # This is the bot object itself that we set commands for using decorators
-client = StocktonClient(commands.Bot)
+client = StocktonClient(qsbot.client)
 
 # We want to override help we have to first remove it
 # as it is one of the default commands in the commands.Bot super class
 client.remove_command('help')
 
-print("Discord Py Version: " + discord.__version__)
-print("Pickle Version: " + pickle.format_version)
-print("BeautifulSoup Version: " + bs4.__version__)
-print("Requests Version: " + requests.__version__)
+client.set_prefixes(['/', '.', '='])
 
+client.set_reaction_for_role_channel(585217455530442812)
+
+client.add_reaction_for_role('agree','Auth-ed')
+client.add_reaction_for_role('Fortnite','Fortnite')
+client.add_reaction_for_role('GC','Rocket League')
+client.add_reaction_for_role('CSGO','CS:GO')
+client.add_reaction_for_role('HS','Hearthstone')
+client.add_reaction_for_role('LoL','League')
+client.add_reaction_for_role('SmashBall','SBU')
+client.add_reaction_for_role('Overwatch','Overwatch')
+
+
+client.set_on_ready_message('Connected to the server.\nDiscord Py Version: ' + discord.__version__)
+
+client.set_welcome_message(client.get_welcome_message())
 
 # ===========================ROLES===========================================
 @client.command(pass_context=True)
